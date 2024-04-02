@@ -6,6 +6,10 @@ public class MainCharacterMaze : MonoBehaviour
 {
     public float moveSpeed = 5f;
     private int moveFlag = 0;
+    void OnCollisionEnter2D(Collision2D collision)
+    {
+        wallStop();
+    }
     private void getMove()
     {
         if (moveFlag == 0)
@@ -52,15 +56,19 @@ public class MainCharacterMaze : MonoBehaviour
     }
     private void wallStop() { 
         if(moveFlag != 0) {
-            //닿았는지 체크
+            moveFlag = 0;
+            //닿았는지 체크//캐릭터크기는 맵 크기에 딱 맞게 가도록 하자
             //moveFlag = 0;
         }
     }
+
 
     // Update is called once per frame
     void Update()
     {
         getMove();
         move();
+        
     }
+    
 }
