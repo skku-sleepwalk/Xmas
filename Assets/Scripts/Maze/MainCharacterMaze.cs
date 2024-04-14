@@ -6,9 +6,11 @@ public class MainCharacterMaze : MonoBehaviour
 {
     public float moveSpeed = 5f;
     private int moveFlag = 0;
+    private bool delaying = false;
     void OnCollisionEnter2D(Collision2D collision)
     {
-        wallStop();
+        if (!delaying)Invoke("wallStop", 1f);
+        delaying = true;
     }
     private void getMove()
     {
@@ -57,6 +59,7 @@ public class MainCharacterMaze : MonoBehaviour
     private void wallStop() { 
         if(moveFlag != 0) {
             moveFlag = 0;
+            delaying = false;
             //닿았는지 체크//캐릭터크기는 맵 크기에 딱 맞게 가도록 하자
             //moveFlag = 0;
         }
