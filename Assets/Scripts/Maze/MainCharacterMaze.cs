@@ -9,7 +9,7 @@ public class MainCharacterMaze : MonoBehaviour
     private bool delaying = false;
     void OnCollisionEnter2D(Collision2D collision)
     {
-        if (!delaying)Invoke("wallStop", 1f);
+        if (!delaying)Invoke("wallStop", 0.1f);
         delaying = true;
     }
     private void getMove()
