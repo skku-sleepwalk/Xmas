@@ -1,17 +1,26 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 
 public class MainCharacterMaze : MonoBehaviour
 {
     public float moveSpeed = 5f;
     private int moveFlag = 0;
-    private bool delaying = false;
-    void OnCollisionEnter2D(Collision2D collision)
+    //private bool delaying = false;
+    private Rigidbody2D rb;
+    RaycastHit2D hit;
+    void Start()
     {
-        if (!delaying)Invoke("wallStop", 0.1f);
-        delaying = true;
+        // Rigidbody 컴포넌트 가져오기
+        rb = GetComponent<Rigidbody2D>();
     }
+    
+        
+        //if (!delaying)Invoke("wallStop", 0.1f);
+        //delaying = true;
+    
+    //oncoll
     private void getMove()
     {
         if (moveFlag == 0)
@@ -39,38 +48,106 @@ public class MainCharacterMaze : MonoBehaviour
     private void move() { 
         if(moveFlag == 1)
         {
-            transform.Translate(Vector3.right * moveSpeed*Time.deltaTime);
+            rb.velocity = Vector2.right * moveSpeed;
+            //rb.AddForce(Vector3.right * moveSpeed);
+            //transform.Translate(Vector3.right * moveSpeed*Time.deltaTime);
         }
         else if (moveFlag == 2)
         {
-            transform.Translate(Vector3.left * moveSpeed * Time.deltaTime);
+            rb.velocity = Vector2.left * moveSpeed;
+           //rb.AddForce(Vector3.left * moveSpeed);
+         //   transform.Translate(Vector3.left * moveSpeed * Time.deltaTime);
         }
         else if (moveFlag == 3)
         {
-            transform.Translate(Vector3.up * moveSpeed * Time.deltaTime);
+            rb.velocity = Vector2.up * moveSpeed;
+            //rb.AddForce(Vector3.up * moveSpeed);
+
+            //transform.Translate(Vector3.up * moveSpeed * Time.deltaTime);
         }
         else if (moveFlag == 4)
         {
-            transform.Translate(Vector3.down * moveSpeed * Time.deltaTime);
+            rb.velocity = Vector2.down * moveSpeed;
+            //rb.AddForce(Vector3.down * moveSpeed);
+           // transform.Translate(Vector3.down * moveSpeed * Time.deltaTime);
         }
 
 
     }
-    private void wallStop() { 
-        if(moveFlag != 0) {
-            moveFlag = 0;
-            delaying = false;
-            //닿았는지 체크//캐릭터크기는 맵 크기에 딱 맞게 가도록 하자
-            //moveFlag = 0;
+    private void wallStop() {
+        RaycastHit2D hit;
+        switch (moveFlag)
+        {
+            case 1:
+
+                 hit = Physics2D.Raycast(transform.position, Vector2.right, 0.5f, 1<<6);
+                Debug.DrawRay(transform.position, Vector2.right* 0.6f, new Color(0, 1, 0));
+                Debug.Log(hit.collider);
+
+                if (hit.collider != null)
+                {
+                    moveFlag = 0;
+                    //if (rb.velocity != Vector2.zero) transform.Translate(Vector2.right * 0.1f);
+                    rb.velocity = Vector2.zero;
+                }
+                
+                break;
+            case 2:
+                 hit = Physics2D.Raycast(transform.position, Vector2.left, 0.5f, 1 << 6);
+                Debug.DrawRay(transform.position, Vector2.left * 0.6f, new Color(0, 1, 0));
+                Debug.Log(hit.collider);
+
+                if (hit.collider != null)
+                {
+                    moveFlag = 0;
+                    //if (rb.velocity != Vector2.zero) transform.Translate(Vector2.left * 0.1f);
+                    rb.velocity = Vector2.zero;
+                }
+                break;
+            case 3:
+                 hit = Physics2D.Raycast(transform.position, Vector2.up, 0.5f, 1 << 6);
+                Debug.DrawRay(transform.position, Vector2.up * 0.6f, new Color(0, 1, 0));
+                Debug.Log(hit.collider);
+
+                if (hit.collider != null)
+                {
+                    moveFlag = 0;
+                   // if (rb.velocity != Vector2.zero) transform.Translate(Vector2.up * 0.1f);
+                    rb.velocity = Vector2.zero;
+                }
+                break;
+            case 4:
+                 hit = Physics2D.Raycast(transform.position, Vector2.down, 0.5f, 1 << 6);
+                Debug.DrawRay(transform.position, Vector2.down * 0.6f, new Color(0, 1, 0));
+                Debug.Log(hit.collider);
+
+                if (hit.collider != null)
+                {
+                    moveFlag = 0;
+                    
+                   // if(rb.velocity!=Vector2.zero)transform.Translate(Vector2.down * 0.1f);
+                    rb.velocity = Vector2.zero;
+                }
+                break;
+            default:
+                break;
+
         }
+ 
     }
 
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
+        //if (rb.velocity == Vector2.zero) transform.position = new Vector2((float)Math.Round(transform.position.x), (float)Math.Round(transform.position.y));
         getMove();
+        if (moveFlag !=0) wallStop();
         move();
+        
+        Debug.Log("flag=" + moveFlag);
+
+        Debug.Log("vel=" + rb.velocity);
         
     }
     
