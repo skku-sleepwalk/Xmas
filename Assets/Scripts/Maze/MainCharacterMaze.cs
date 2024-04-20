@@ -81,8 +81,8 @@ public class MainCharacterMaze : MonoBehaviour
             case 1:
 
                  hit = Physics2D.Raycast(transform.position, Vector2.right, 0.5f, 1<<6);
-                Debug.DrawRay(transform.position, Vector2.right* 0.6f, new Color(0, 1, 0));
-                Debug.Log(hit.collider);
+                //Debug.DrawRay(transform.position, Vector2.right* 0.6f, new Color(0, 1, 0));
+                //Debug.Log(hit.collider);
 
                 if (hit.collider != null)
                 {
@@ -94,8 +94,8 @@ public class MainCharacterMaze : MonoBehaviour
                 break;
             case 2:
                  hit = Physics2D.Raycast(transform.position, Vector2.left, 0.5f, 1 << 6);
-                Debug.DrawRay(transform.position, Vector2.left * 0.6f, new Color(0, 1, 0));
-                Debug.Log(hit.collider);
+                //Debug.DrawRay(transform.position, Vector2.left * 0.6f, new Color(0, 1, 0));
+                //Debug.Log(hit.collider);
 
                 if (hit.collider != null)
                 {
@@ -106,8 +106,8 @@ public class MainCharacterMaze : MonoBehaviour
                 break;
             case 3:
                  hit = Physics2D.Raycast(transform.position, Vector2.up, 0.5f, 1 << 6);
-                Debug.DrawRay(transform.position, Vector2.up * 0.6f, new Color(0, 1, 0));
-                Debug.Log(hit.collider);
+               // Debug.DrawRay(transform.position, Vector2.up * 0.6f, new Color(0, 1, 0));
+                //Debug.Log(hit.collider);
 
                 if (hit.collider != null)
                 {
@@ -118,8 +118,8 @@ public class MainCharacterMaze : MonoBehaviour
                 break;
             case 4:
                  hit = Physics2D.Raycast(transform.position, Vector2.down, 0.5f, 1 << 6);
-                Debug.DrawRay(transform.position, Vector2.down * 0.6f, new Color(0, 1, 0));
-                Debug.Log(hit.collider);
+               // Debug.DrawRay(transform.position, Vector2.down * 0.6f, new Color(0, 1, 0));
+                //Debug.Log(hit.collider);
 
                 if (hit.collider != null)
                 {
@@ -145,9 +145,9 @@ public class MainCharacterMaze : MonoBehaviour
         if (moveFlag !=0) wallStop();
         move();
         
-        Debug.Log("flag=" + moveFlag);
+       // Debug.Log("flag=" + moveFlag);
 
-        Debug.Log("vel=" + rb.velocity);
+       // Debug.Log("vel=" + rb.velocity);
         
     }
     

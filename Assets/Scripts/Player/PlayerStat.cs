@@ -7,7 +7,7 @@ public class PlayerStat : MonoBehaviour
     private static int hp;
     private static int maxHp;
     private static string playerName;
-    private static int exp;
+    private static int exp=0;
     private static int maxExp;
 
     public static int Hp{
@@ -39,7 +39,7 @@ public class PlayerStat : MonoBehaviour
         get => exp;
         set
         {
-            exp = value;
+            exp += value;//+=임에 유의
         }
     }
     public static int MaxExp
