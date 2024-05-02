@@ -50,6 +50,14 @@ public class PlayerStat : MonoBehaviour
             maxExp = value;
         }
     }
+    private void Update()
+    {
+        if (hp < 0)
+        {
+            Renderer renderer = GetComponent<Renderer>();
+            renderer.material.color = Color.red;
+        }
+    }
 
 
 
