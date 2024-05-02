@@ -25,20 +25,20 @@ public class MainCharacterMaze : MonoBehaviour
     {
         if (moveFlag == 0)
         {
-            if (Input.GetKey(KeyCode.RightArrow))
+            if (Input.GetKeyDown(KeyCode.RightArrow) && BarMove.hitChecker)
             {
                 moveFlag = 1;
             }
-            if (Input.GetKey(KeyCode.LeftArrow))
+            if (Input.GetKeyDown(KeyCode.LeftArrow) && BarMove.hitChecker)
             {
                 moveFlag = 2;
             }
-            if (Input.GetKey(KeyCode.UpArrow))
+            if (Input.GetKeyDown(KeyCode.UpArrow) && BarMove.hitChecker)
             {
                 moveFlag = 3;
 
             }
-            if (Input.GetKey(KeyCode.DownArrow))
+            if (Input.GetKeyDown(KeyCode.DownArrow) && BarMove.hitChecker)
             {
                 moveFlag = 4;
             }
