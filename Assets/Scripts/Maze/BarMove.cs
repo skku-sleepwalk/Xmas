@@ -12,6 +12,11 @@ public class BarMove : MonoBehaviour
     {
         hitChecker = false;
     }
+    void Start()
+    {
+        // 프레임 레이트를 60으로 설정
+        Application.targetFrameRate = 60;
+    }
     private void OnTriggerEnter2D(Collider2D collision)
     {
         hitChecker = true;
