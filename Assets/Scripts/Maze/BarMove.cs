@@ -17,14 +17,7 @@ public class BarMove : MonoBehaviour
         // 프레임 레이트를 60으로 설정
         Application.targetFrameRate = 60;
     }
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        hitChecker = true;
-    }
-    private void OnTriggerExit2D(Collider2D collision)
-    {
-        hitChecker = false;
-    }
+   
 
     void Update()
     {
@@ -39,6 +32,14 @@ public class BarMove : MonoBehaviour
         {
             direction *= -1; // 방향 전환
             frameCount = 0;  // 프레임 카운터 초기화
+        }
+        if (11 <= frameCount % 30 && frameCount % 30 <= 18)
+        {
+            hitChecker = true;
+        }
+        else
+        {
+            hitChecker = false;
         }
     }
 
