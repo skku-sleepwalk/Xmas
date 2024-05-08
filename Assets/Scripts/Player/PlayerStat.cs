@@ -9,7 +9,33 @@ public class PlayerStat : MonoBehaviour
     private static string playerName;
     private static int exp=0;
     private static int maxExp;
-
+    private static int item1;
+    private static int item2;
+    private static int item3;
+    public static int Item1
+    {
+        get => item1;
+        set
+        {
+            item1 = value;
+        }
+    }
+    public static int Item2
+    {
+        get => item2;
+        set
+        {
+            item2 = value;
+        }
+    }
+    public static int Item3
+    {
+        get => item3;
+        set
+        {
+            item3 = value;
+        }
+    }
     public static int Hp{
         get => hp;
         set

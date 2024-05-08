@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class ItemManger : MonoBehaviour
 {
-    static int itemStatus = 1;
+    public static int itemStatus = 1;
     private void Update()
     {
         if (Input.GetKeyDown(KeyCode.Keypad1))
@@ -19,9 +19,9 @@ public class ItemManger : MonoBehaviour
         {
             itemStatus = 3;
         }
-        else if (Input.GetKeyDown(KeyCode.Z))
-        {
+      //  else if (Input.GetKeyDown(KeyCode.Z))
+        //{
             //USEITEM
-        }
+        //}
     }
 }
