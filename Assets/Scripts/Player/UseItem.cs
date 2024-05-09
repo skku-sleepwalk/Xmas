@@ -24,6 +24,7 @@ public class UseItem : MonoBehaviour
             if (Input.GetKeyDown(KeyCode.RightArrow)) dir = 1;
             if (Input.GetKeyDown(KeyCode.DownArrow)) dir = 2;
             if (Input.GetKeyDown(KeyCode.LeftArrow)) dir = 3;
+            Debug.Log("now dir is" + dir);
         }
         else if (usingItem&&Input.GetKeyDown(KeyCode.Z))
         {
@@ -32,7 +33,32 @@ public class UseItem : MonoBehaviour
                 case 1:
 
                 case 2:
+                    switch (dir)
+                    {
+                        case 0:
+                            hit = Physics2D.Raycast(transform.position, Vector2.up, 4.5f, 1 << 7);
+                            break;
+                        case 1:
+                            hit = Physics2D.Raycast(transform.position, Vector2.right, 4.5f, 1 << 7);
+                            break;
+                        case 2:
+                            hit = Physics2D.Raycast(transform.position, Vector2.down, 4.5f, 1 << 7);
+                            break;
+                        case 3:
+                            hit = Physics2D.Raycast(transform.position, Vector2.left, 4.5f, 1 << 7);
+                            break;
+                        default:
+                            break;
 
+                    }
+                    if(hit.collider==null)hit= Physics2D.Raycast(transform.position, Vector2.left, 4.5f, 1 << 6);
+                    //Debug.Log(hit.collider);
+                    //Debug.DrawLine(gameObject.transform.position, hit.point, Color.red);
+                    if (hit.collider != null && hit.transform.tag == "greenWall")
+                    {
+                        hit.transform.GetComponent<GreenWallMove>().getMove((dir+2)%4);
+                    }
+                    break;
                 case 3:
                     switch (dir)
                     {
@@ -62,6 +88,7 @@ public class UseItem : MonoBehaviour
                     break;
             }
             usingItem = false;
+            Debug.Log("usingItem is"+usingItem);
         }
     }
 }
