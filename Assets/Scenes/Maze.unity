@@ -2262,6 +2262,30 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1815630924791995609, guid: dbeeb5e76adea6d4697cd197c9f9d40d, type: 3}
+      propertyPath: m_Constraints
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 1815630924791995609, guid: dbeeb5e76adea6d4697cd197c9f9d40d, type: 3}
+      propertyPath: m_GravityScale
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9114590032610621490, guid: dbeeb5e76adea6d4697cd197c9f9d40d, type: 3}
+      propertyPath: m_Size.x
+      value: 0.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 9114590032610621490, guid: dbeeb5e76adea6d4697cd197c9f9d40d, type: 3}
+      propertyPath: m_Size.y
+      value: 0.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 9114590032610621490, guid: dbeeb5e76adea6d4697cd197c9f9d40d, type: 3}
+      propertyPath: m_Offset.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9114590032610621490, guid: dbeeb5e76adea6d4697cd197c9f9d40d, type: 3}
+      propertyPath: m_Offset.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 9114590032610621491, guid: dbeeb5e76adea6d4697cd197c9f9d40d, type: 3}
       propertyPath: m_Name
       value: green

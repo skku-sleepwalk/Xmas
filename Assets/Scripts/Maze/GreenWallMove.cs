@@ -19,7 +19,7 @@ public class GreenWallMove : MonoBehaviour
     }
     private void move()
     {
-        Debug.Log("moving");
+        Debug.Log("moving with moveFlag"+moveFlag);
         if (moveFlag == 1)
         {
             rb.velocity = Vector2.right * moveSpeed;
@@ -47,7 +47,7 @@ public class GreenWallMove : MonoBehaviour
             case 1:
 
                 hit = Physics2D.Raycast(transform.position, Vector2.right, 0.51f, 1 << 6);
-
+                if (hit.collider == null) hit = Physics2D.Raycast(transform.position, Vector2.right, 0.61f, 1 << 7);
                 if (hit.collider != null)
                 {
                     moveFlag = 0;
@@ -58,7 +58,7 @@ public class GreenWallMove : MonoBehaviour
             case 2:
 
                 hit = Physics2D.Raycast(transform.position, Vector2.left, 0.51f, 1 << 6);
-
+                if (hit.collider == null) hit = Physics2D.Raycast(transform.position, Vector2.left, 0.61f, 1 << 7);
                 if (hit.collider != null)
                 {
                     moveFlag = 0;
@@ -67,7 +67,7 @@ public class GreenWallMove : MonoBehaviour
                 break;
             case 3:
                 hit = Physics2D.Raycast(transform.position, Vector2.up, 0.51f, 1 << 6);
-
+                if (hit.collider == null) hit = Physics2D.Raycast(transform.position, Vector2.up, 0.61f, 1 << 7);
                 if (hit.collider != null)
                 {
                     moveFlag = 0;
@@ -76,7 +76,7 @@ public class GreenWallMove : MonoBehaviour
                 break;
             case 4:
                 hit = Physics2D.Raycast(transform.position, Vector2.down, 0.51f, 1 << 6);
-
+                if (hit.collider == null) hit = Physics2D.Raycast(transform.position, Vector2.down, 0.61f, 1 << 7);
                 if (hit.collider != null)
                 {
                     moveFlag = 0;

@@ -15,7 +15,7 @@ public class MainCharacterMaze : MonoBehaviour
     }
     private void getMove()
     {
-        if (moveFlag == 0)
+        if (moveFlag == 0&&!UseItem.usingItem)
         {
             if (Input.GetKeyDown(KeyCode.RightArrow))
             {
@@ -80,6 +80,7 @@ public class MainCharacterMaze : MonoBehaviour
             case 1:
 
                  hit = Physics2D.Raycast(transform.position, Vector2.right, 0.51f, 1<<6);
+                if(hit.collider==null) hit = Physics2D.Raycast(transform.position, Vector2.right, 0.61f, 1 << 7);
 
                 if (hit.collider != null)
                 {
@@ -91,7 +92,7 @@ public class MainCharacterMaze : MonoBehaviour
             case 2:
 
                  hit = Physics2D.Raycast(transform.position, Vector2.left, 0.51f, 1 << 6);
-
+                if (hit.collider == null) hit = Physics2D.Raycast(transform.position, Vector2.left, 0.61f, 1 << 7);
                 if (hit.collider != null)
                 {
                     moveFlag = 0;
@@ -100,6 +101,7 @@ public class MainCharacterMaze : MonoBehaviour
                 break;
             case 3:
                  hit = Physics2D.Raycast(transform.position, Vector2.up, 0.51f, 1 << 6);
+                if (hit.collider == null) hit = Physics2D.Raycast(transform.position, Vector2.up, 0.61f, 1 << 7);
 
                 if (hit.collider != null)
                 {
@@ -108,7 +110,8 @@ public class MainCharacterMaze : MonoBehaviour
                 }
                 break;
             case 4:
-                 hit = Physics2D.Raycast(transform.position, Vector2.down, 0.51f, 1 << 6);
+                 hit = Physics2D.Raycast(transform.position, Vector2.down, 0.51f, 1 << 6 );
+                if (hit.collider == null) hit = Physics2D.Raycast(transform.position, Vector2.down, 0.61f, 1 << 7);
 
                 if (hit.collider != null)
                 {
