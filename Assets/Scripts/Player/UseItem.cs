@@ -31,7 +31,29 @@ public class UseItem : MonoBehaviour
             switch (ItemManger.itemStatus)
             {
                 case 1:
+                    switch (dir)
+                    {
+                        case 0:
+                            hit = Physics2D.Raycast(transform.position, Vector2.up, 4.5f, 1 << 9);
+                            break;
+                        case 1:
+                            hit = Physics2D.Raycast(transform.position, Vector2.right, 4.5f, 1 << 9);
+                            break;
+                        case 2:
+                            hit = Physics2D.Raycast(transform.position, Vector2.down, 4.5f, 1 << 9);
+                            break;
+                        case 3:
+                            hit = Physics2D.Raycast(transform.position, Vector2.left, 4.5f, 1 << 9);
+                            break;
+                        default:
+                            break;
 
+                    }
+                    if (hit.collider != null && hit.transform.tag == "brownWall")
+                    {
+                        Destroy(hit.collider.gameObject);
+                    }
+                    break;
                 case 2:
                     switch (dir)
                     {
