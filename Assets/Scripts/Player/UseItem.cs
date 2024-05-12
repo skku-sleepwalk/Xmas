@@ -34,16 +34,16 @@ public class UseItem : MonoBehaviour
                     switch (dir)
                     {
                         case 0:
-                            hit = Physics2D.Raycast(transform.position, Vector2.up, 4.5f, 1 << 9);
+                            hit = Physics2D.Raycast(transform.position, Vector2.up, 0.5f, 1 << 9);
                             break;
                         case 1:
-                            hit = Physics2D.Raycast(transform.position, Vector2.right, 4.5f, 1 << 9);
+                            hit = Physics2D.Raycast(transform.position, Vector2.right, 0.5f, 1 << 9);
                             break;
                         case 2:
-                            hit = Physics2D.Raycast(transform.position, Vector2.down, 4.5f, 1 << 9);
+                            hit = Physics2D.Raycast(transform.position, Vector2.down, 0.5f, 1 << 9);
                             break;
                         case 3:
-                            hit = Physics2D.Raycast(transform.position, Vector2.left, 4.5f, 1 << 9);
+                            hit = Physics2D.Raycast(transform.position, Vector2.left, 0.5f, 1 << 9);
                             break;
                         default:
                             break;
@@ -58,22 +58,22 @@ public class UseItem : MonoBehaviour
                     switch (dir)
                     {
                         case 0:
-                            hit = Physics2D.Raycast(transform.position, Vector2.up, 4.5f, 1 << 7);
+                            hit = Physics2D.Raycast(transform.position, Vector2.up, 19.5f, 1 << 7);
                             break;
                         case 1:
-                            hit = Physics2D.Raycast(transform.position, Vector2.right, 4.5f, 1 << 7);
+                            hit = Physics2D.Raycast(transform.position, Vector2.right, 19.5f, 1 << 7);
                             break;
                         case 2:
-                            hit = Physics2D.Raycast(transform.position, Vector2.down, 4.5f, 1 << 7);
+                            hit = Physics2D.Raycast(transform.position, Vector2.down, 19.5f, 1 << 7);
                             break;
                         case 3:
-                            hit = Physics2D.Raycast(transform.position, Vector2.left, 4.5f, 1 << 7);
+                            hit = Physics2D.Raycast(transform.position, Vector2.left, 19.5f, 1 << 7);
                             break;
                         default:
                             break;
 
                     }
-                    if(hit.collider==null)hit= Physics2D.Raycast(transform.position, Vector2.left, 4.5f, 1 << 6);
+                    if(hit.collider==null)hit= Physics2D.Raycast(transform.position, Vector2.left, 19.5f, 1 << 6);
                     //Debug.Log(hit.collider);
                     //Debug.DrawLine(gameObject.transform.position, hit.point, Color.red);
                     if (hit.collider != null && hit.transform.tag == "greenWall")
@@ -85,16 +85,16 @@ public class UseItem : MonoBehaviour
                     switch (dir)
                     {
                         case 0:
-                            hit = Physics2D.Raycast(transform.position, Vector2.up, 0.7f, 1 << 7);
+                            hit = Physics2D.Raycast(transform.position, Vector2.up, 19.7f, 1 << 7);
                             break;
                         case 1:
-                            hit = Physics2D.Raycast(transform.position, Vector2.right, 0.7f, 1 << 7);
+                            hit = Physics2D.Raycast(transform.position, Vector2.right, 19.7f, 1 << 7);
                             break;
                         case 2:
-                            hit = Physics2D.Raycast(transform.position, Vector2.down, 0.7f, 1 << 7);
+                            hit = Physics2D.Raycast(transform.position, Vector2.down, 19.7f, 1 << 7);
                             break;
                         case 3:
-                            hit = Physics2D.Raycast(transform.position, Vector2.left, 0.7f, 1 << 7);
+                            hit = Physics2D.Raycast(transform.position, Vector2.left, 19.7f, 1 << 7);
                             break;
                         default:
                             break;
