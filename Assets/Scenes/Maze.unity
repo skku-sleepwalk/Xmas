@@ -756,6 +756,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4818a0f93d3a0b140a01b67d961d4c9b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  wall: {fileID: 188631685091350412, guid: 36b6a94d52661dc4496fcb2c46fa7607, type: 3}
+  brownWall: {fileID: 3263772888219821478, guid: f8ac4adeee24cc348acc64054fe6cae6, type: 3}
 --- !u!1 &495483995
 GameObject:
   m_ObjectHideFlags: 0

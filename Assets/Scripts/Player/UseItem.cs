@@ -34,16 +34,16 @@ public class UseItem : MonoBehaviour
                     switch (dir)
                     {
                         case 0:
-                            hit = Physics2D.Raycast(transform.position, Vector2.up, 0.5f, 1 << 9);
+                            hit = Physics2D.Raycast(transform.position, Vector2.up, 0.6f, 1 << 9);
                             break;
                         case 1:
-                            hit = Physics2D.Raycast(transform.position, Vector2.right, 0.5f, 1 << 9);
+                            hit = Physics2D.Raycast(transform.position, Vector2.right, 0.6f, 1 << 9);
                             break;
                         case 2:
-                            hit = Physics2D.Raycast(transform.position, Vector2.down, 0.5f, 1 << 9);
+                            hit = Physics2D.Raycast(transform.position, Vector2.down, 0.6f, 1 << 9);
                             break;
                         case 3:
-                            hit = Physics2D.Raycast(transform.position, Vector2.left, 0.5f, 1 << 9);
+                            hit = Physics2D.Raycast(transform.position, Vector2.left, 0.6f, 1 << 9);
                             break;
                         default:
                             break;

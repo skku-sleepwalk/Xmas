@@ -81,7 +81,7 @@ public class MainCharacterMaze : MonoBehaviour
 
                  hit = Physics2D.Raycast(transform.position, Vector2.right, 0.51f, 1<<6);
                 if(hit.collider==null) hit = Physics2D.Raycast(transform.position, Vector2.right, 0.61f, 1 << 7);
-
+                if (hit.collider == null) hit = Physics2D.Raycast(transform.position, Vector2.right, 0.51f, 1 << 9);
                 if (hit.collider != null)
                 {
                     moveFlag = 0;
@@ -93,6 +93,8 @@ public class MainCharacterMaze : MonoBehaviour
 
                  hit = Physics2D.Raycast(transform.position, Vector2.left, 0.51f, 1 << 6);
                 if (hit.collider == null) hit = Physics2D.Raycast(transform.position, Vector2.left, 0.61f, 1 << 7);
+                if (hit.collider == null) hit = Physics2D.Raycast(transform.position, Vector2.left, 0.51f, 1 << 9);
+
                 if (hit.collider != null)
                 {
                     moveFlag = 0;
@@ -102,6 +104,7 @@ public class MainCharacterMaze : MonoBehaviour
             case 3:
                  hit = Physics2D.Raycast(transform.position, Vector2.up, 0.51f, 1 << 6);
                 if (hit.collider == null) hit = Physics2D.Raycast(transform.position, Vector2.up, 0.61f, 1 << 7);
+                if (hit.collider == null) hit = Physics2D.Raycast(transform.position, Vector2.up, 0.51f, 1 << 9);
 
                 if (hit.collider != null)
                 {
@@ -112,6 +115,7 @@ public class MainCharacterMaze : MonoBehaviour
             case 4:
                  hit = Physics2D.Raycast(transform.position, Vector2.down, 0.51f, 1 << 6 );
                 if (hit.collider == null) hit = Physics2D.Raycast(transform.position, Vector2.down, 0.61f, 1 << 7);
+                if (hit.collider == null) hit = Physics2D.Raycast(transform.position, Vector2.down, 0.51f, 1 << 9);
 
                 if (hit.collider != null)
                 {
