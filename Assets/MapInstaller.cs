@@ -66,7 +66,7 @@ public class MapInstaller : MonoBehaviour
         Instantiate(brownWall, new Vector3(20, 4, 1), Quaternion.identity);
         Instantiate(brownWall, new Vector3(21, 3, 1), Quaternion.identity);
         Instantiate(brownWall, new Vector3(20, 3, 1), Quaternion.identity);
-
+        Instantiate(wall, new Vector3(22, 2, 1), Quaternion.identity);
 
     }
 
