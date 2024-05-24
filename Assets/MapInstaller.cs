@@ -10,38 +10,12 @@ public class MapInstaller : MonoBehaviour
     public GameObject brownWall;
     void Start()
     {
-        for (int i = 2; i < 6; i++)
-        {
-            for (int j = 3; j < 4; j++)
-            {
-
-                Instantiate(wall, new Vector3(i, j, 1), Quaternion.identity);
-            }
-        }
-        for (int i = 5; i < 12; i++)
-        {
-            for (int j = 2; j < 3; j++)
-            {
-
-                Instantiate(wall, new Vector3(i, j, 1), Quaternion.identity);
-            }
-        }
-        for (int i = 0; i < 1; i++)
-        {
-            for (int j = 4; j < 6; j++)
-            {
-
-                Instantiate(wall, new Vector3(i, j, 1), Quaternion.identity);
-            }
-        }
-        for (int i = 1; i < 10; i++)
-        {
-            for (int j = 5; j < 6; j++)
-            {
-
-                Instantiate(wall, new Vector3(i, j, 1), Quaternion.identity);
-            }
-        }
+        for (int i = 2; i < 6; i++)Instantiate(wall, new Vector3(i, 3, 1), Quaternion.identity);
+        for (int i = 5; i < 12; i++)Instantiate(wall, new Vector3(i, 2, 1), Quaternion.identity);
+        for (int j = 4; j < 6; j++)Instantiate(wall, new Vector3(0, j, 1), Quaternion.identity);
+        for (int i = 1; i < 10; i++)Instantiate(wall, new Vector3(i, 5, 1), Quaternion.identity);
+            
+        
         Instantiate(brownWall, new Vector3(6, 4, 1), Quaternion.identity);
         Instantiate(wall, new Vector3(7, 4, 1), Quaternion.identity);
         Instantiate(brownWall, new Vector3(8, 3, 1), Quaternion.identity);
