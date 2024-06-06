@@ -76,6 +76,10 @@ public class PlayerStat : MonoBehaviour
             maxExp = value;
         }
     }
+    private void Start()
+    {
+        Hp = 3;
+    }
     private void Update()
     {
         if (hp < 0)
