@@ -8,6 +8,7 @@ public class BarMove : MonoBehaviour
     private int frameCount = 0; // 프레임 카운터
     private int direction = 1;  // 이동 방향 (1: 오른쪽, -1: 왼쪽)
     public static bool hitChecker;
+    public static int HitNumber;
     private void Awake()
     {
         hitChecker = false;
@@ -17,6 +18,7 @@ public class BarMove : MonoBehaviour
         // 프레임 레이트를 60으로 설정
         Application.targetFrameRate = 60;
     }
+    
    
 
     void Update()
@@ -26,7 +28,7 @@ public class BarMove : MonoBehaviour
 
         // 프레임 카운트 증가
         frameCount++;
-
+        HitNumber = frameCount / 30;
         // 120 프레임마다 방향 전환
         if (frameCount == 120)
         {

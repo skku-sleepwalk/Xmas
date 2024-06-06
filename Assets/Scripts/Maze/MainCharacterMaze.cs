@@ -5,6 +5,39 @@ using System;
 
 public class MainCharacterMaze : MonoBehaviour
 {
+    public AudioClip missSound;
+    public AudioClip hitSound0;
+    public AudioClip hitSound1;
+    public AudioClip hitSound2;
+    public AudioClip hitSound3;
+    private void Miss()
+    {
+        PlayerStat.Hp -= 1;
+        AudioManager.playSound(missSound);
+    }
+    private void HitSound(int number)
+    {
+        switch (number)
+        {
+            case 0:
+                AudioManager.playSound(hitSound0);
+
+                break;
+            case 1:
+                AudioManager.playSound(hitSound1);
+
+                break;
+            case 2:
+                AudioManager.playSound(hitSound2);
+                break;
+            case 3:
+                AudioManager.playSound(hitSound3);
+                break;
+            default:
+                break;
+        }
+       
+    }
     public float moveSpeed = 5f;
     private int moveFlag = 0;
     private Rigidbody2D rb;
@@ -19,35 +52,55 @@ public class MainCharacterMaze : MonoBehaviour
         {
             if (Input.GetKeyDown(KeyCode.RightArrow))
             {
-                if (BarMove.hitChecker) moveFlag = 1;
+                if (BarMove.hitChecker)
+                {
+                    moveFlag = 1;
+                    HitSound(BarMove.HitNumber);
+                }
                 else
                 {
-                    PlayerStat.Hp -= 1;
+                    Miss();
                 }
             }
             if (Input.GetKeyDown(KeyCode.LeftArrow))
             {
-                if (BarMove.hitChecker) moveFlag = 2;
+                if (BarMove.hitChecker)
+                {
+                    moveFlag = 2;
+                    HitSound(BarMove.HitNumber);
+
+                }
                 else
                 {
-                    PlayerStat.Hp -= 1;
+                    Miss();
                 }
             }
             if (Input.GetKeyDown(KeyCode.UpArrow))
             {
-                if (BarMove.hitChecker) moveFlag = 3;
+                if (BarMove.hitChecker)
+                {
+                    moveFlag = 3;
+                    HitSound(BarMove.HitNumber);
+
+                }
                 else
                 {
-                    PlayerStat.Hp -= 1;
+                    Miss();
                 }
 
             }
             if (Input.GetKeyDown(KeyCode.DownArrow) )
             {
-                if (BarMove.hitChecker) moveFlag = 4;
+                if (BarMove.hitChecker)
+                {
+                    moveFlag = 4;
+                    HitSound(BarMove.HitNumber);
+
+                }
+
                 else
                 {
-                    PlayerStat.Hp -= 1;
+                    Miss();
                 }
             }
         }
@@ -129,7 +182,10 @@ public class MainCharacterMaze : MonoBehaviour
         }
  
     }
-
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.tag == "goal") Debug.Log("END");
+    }
 
     // Update is called once per frame
     void FixedUpdate()

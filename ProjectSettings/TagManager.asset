@@ -7,6 +7,7 @@ TagManager:
   - wall
   - greenWall
   - brownWall
+  - goal
   layers:
   - Default
   - TransparentFX
