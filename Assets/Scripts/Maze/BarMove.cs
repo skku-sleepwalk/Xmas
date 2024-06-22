@@ -86,7 +86,7 @@ public class BarMove : MonoBehaviour
             direction *= -1; // 방향 전환
             frameCount = 0;  // 프레임 카운터 초기화
         }
-        if (11 <= frameCount % 30 && frameCount % 30 <= 18)
+        if (11 <= frameCount % 30 && frameCount % 30 <= 18&&IsAble==true)
         {
             hitChecker = true;
         }
