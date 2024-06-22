@@ -12,8 +12,12 @@ public class MainCharacterMaze : MonoBehaviour
     public AudioClip hitSound3;
     private void Miss()
     {
-        PlayerStat.Hp -= 1;
-        AudioManager.playSound(missSound);
+        if (BarMove.IsStarted)
+        {
+            PlayerStat.Hp -= 1;
+            AudioManager.playSound(missSound);
+        }
+        
     }
     private void HitSound(int number)
     {
@@ -52,6 +56,7 @@ public class MainCharacterMaze : MonoBehaviour
         {
             if (Input.GetKeyDown(KeyCode.RightArrow))
             {
+                
                 if (BarMove.hitChecker)
                 {
                     moveFlag = 1;
@@ -61,9 +66,11 @@ public class MainCharacterMaze : MonoBehaviour
                 {
                     Miss();
                 }
+                BarMove.IsStarted = true;
             }
             if (Input.GetKeyDown(KeyCode.LeftArrow))
             {
+                
                 if (BarMove.hitChecker)
                 {
                     moveFlag = 2;
@@ -74,9 +81,11 @@ public class MainCharacterMaze : MonoBehaviour
                 {
                     Miss();
                 }
+                BarMove.IsStarted = true;
             }
             if (Input.GetKeyDown(KeyCode.UpArrow))
             {
+                
                 if (BarMove.hitChecker)
                 {
                     moveFlag = 3;
@@ -87,10 +96,11 @@ public class MainCharacterMaze : MonoBehaviour
                 {
                     Miss();
                 }
-
+                    BarMove.IsStarted = true;
             }
             if (Input.GetKeyDown(KeyCode.DownArrow) )
             {
+                
                 if (BarMove.hitChecker)
                 {
                     moveFlag = 4;
@@ -102,6 +112,7 @@ public class MainCharacterMaze : MonoBehaviour
                 {
                     Miss();
                 }
+                BarMove.IsStarted = true;
             }
         }
        
