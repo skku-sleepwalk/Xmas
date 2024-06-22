@@ -3,7 +3,11 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - wall
+  - greenWall
+  - brownWall
+  - goal
   layers:
   - Default
   - TransparentFX
@@ -11,10 +15,10 @@ TagManager:
   - 
   - Water
   - UI
-  - 
-  - 
-  - 
-  - 
+  - Wall
+  - GreenWall
+  - MainCharacter
+  - BrownWall
   - 
   - 
   - 
