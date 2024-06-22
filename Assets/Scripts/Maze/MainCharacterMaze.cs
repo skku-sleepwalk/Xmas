@@ -137,6 +137,15 @@ public class MainCharacterMaze : MonoBehaviour
 
 
     }
+    public Vector3 RoundVector3(Vector3 originalVector)
+    {
+        return new Vector3(
+            Mathf.Round(originalVector.x),
+            Mathf.Round(originalVector.y),
+            Mathf.Round(originalVector.z)
+        );
+    }
+
     private void wallStop() {
         RaycastHit2D hit;
         switch (moveFlag)
@@ -150,6 +159,7 @@ public class MainCharacterMaze : MonoBehaviour
                 {
                     moveFlag = 0;
                     rb.velocity = Vector2.zero;
+                    transform.position= RoundVector3(transform.position);
                 }
                 
                 break;
@@ -163,6 +173,7 @@ public class MainCharacterMaze : MonoBehaviour
                 {
                     moveFlag = 0;
                     rb.velocity = Vector2.zero;
+                    transform.position = RoundVector3(transform.position);
                 }
                 break;
             case 3:
@@ -174,6 +185,7 @@ public class MainCharacterMaze : MonoBehaviour
                 {
                     moveFlag = 0;
                     rb.velocity = Vector2.zero;
+                    transform.position = RoundVector3(transform.position);
                 }
                 break;
             case 4:
@@ -185,6 +197,7 @@ public class MainCharacterMaze : MonoBehaviour
                 {
                     moveFlag = 0;
                     rb.velocity = Vector2.zero;
+                    transform.position = RoundVector3(transform.position);
                 }
                 break;
             default:
