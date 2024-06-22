@@ -92,6 +92,86 @@ public class OuterGenerator : MonoBehaviour
             instance.transform.position = new Vector3(i, -4, 0);
 
         }
+        for (int i = -8; i < -4; i++)
+        {
+            
+            instance = Instantiate(wall);
+            
+            instance.transform.position = new Vector3(i, 2, 0);
+            instance = Instantiate(wall);
+
+            instance.transform.position = new Vector3(i, -2, 0);
+
+        }
+        for (int i = -1; i < 2; i++)
+        {
+
+            instance = Instantiate(wall);
+
+            instance.transform.position = new Vector3(-8, i, 0);
+
+        }
+
+        for (int i = 5; i < 9; i++)
+        {
+
+            instance = Instantiate(wall);
+
+            instance.transform.position = new Vector3(i, 2, 0);
+            instance = Instantiate(wall);
+
+            instance.transform.position = new Vector3(i, -2, 0);
+
+        }
+        for (int i = -1; i < 2; i++)
+        {
+
+            instance = Instantiate(wall);
+
+            instance.transform.position = new Vector3(8, i, 0);
+
+        }
+
+
+        for (int i = 5; i < 9; i++)
+        {
+
+            instance = Instantiate(wall);
+
+            instance.transform.position = new Vector3(2, i, 0);
+            instance = Instantiate(wall);
+
+            instance.transform.position = new Vector3(-2, i, 0);
+
+        }
+        for (int i = -1; i < 2; i++)
+        {
+
+            instance = Instantiate(wall);
+
+            instance.transform.position = new Vector3(i, 8, 0);
+
+        }
+
+        for (int i = -8; i < -4; i++)
+        {
+
+            instance = Instantiate(wall);
+
+            instance.transform.position = new Vector3(2, i, 0);
+            instance = Instantiate(wall);
+
+            instance.transform.position = new Vector3(-2, i, 0);
+
+        }
+        for (int i = -1; i < 2; i++)
+        {
+
+            instance = Instantiate(wall);
+
+            instance.transform.position = new Vector3(i, -8, 0);
+
+        }
     }
 
 
