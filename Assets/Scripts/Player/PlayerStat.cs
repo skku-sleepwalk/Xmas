@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.UI;
 public class PlayerStat : MonoBehaviour
 {
     private static int hp;
@@ -12,6 +12,11 @@ public class PlayerStat : MonoBehaviour
     private static int item1;
     private static int item2;
     private static int item3;
+    public Image screenFadeImage;
+    void FadeOutScreen()
+    {
+        screenFadeImage.color = new Color(0, 0, 0, 0.5f);  // 반투명 검은색으로 설정
+    }
     public static int Item1
     {
         get => item1;
@@ -86,6 +91,7 @@ public class PlayerStat : MonoBehaviour
         {
             Renderer renderer = GetComponent<Renderer>();
             renderer.material.color = Color.red;
+            screenFadeImage.color = new Color(0, 0, 0, 0.5f);
         }
     }
 

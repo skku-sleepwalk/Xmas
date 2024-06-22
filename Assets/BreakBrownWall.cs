@@ -20,7 +20,7 @@ public class BreakBrownWall : MonoBehaviour
                 while (true)
                 {
                     //Debug.Log(hits[0]);
-                    if (hits[r] != null && hits[r].transform.tag == "brownWall")
+                    if (hits!=null&&hits[r] != null && hits[r].transform.tag == "brownWall")
                     {
                         Destroy(hits[r].gameObject);
                     }

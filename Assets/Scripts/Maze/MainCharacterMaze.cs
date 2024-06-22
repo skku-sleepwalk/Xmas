@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System;
+using UnityEngine.SceneManagement;
 
 public class MainCharacterMaze : MonoBehaviour
 {
@@ -12,8 +13,12 @@ public class MainCharacterMaze : MonoBehaviour
     public AudioClip hitSound3;
     private void Miss()
     {
-        PlayerStat.Hp -= 1;
-        AudioManager.playSound(missSound);
+        if (BarMove.IsStarted)
+        {
+            PlayerStat.Hp -= 1;
+            AudioManager.playSound(missSound);
+        }
+        
     }
     private void HitSound(int number)
     {
@@ -52,6 +57,7 @@ public class MainCharacterMaze : MonoBehaviour
         {
             if (Input.GetKeyDown(KeyCode.RightArrow))
             {
+                
                 if (BarMove.hitChecker)
                 {
                     moveFlag = 1;
@@ -61,9 +67,11 @@ public class MainCharacterMaze : MonoBehaviour
                 {
                     Miss();
                 }
+                BarMove.IsStarted = true;
             }
             if (Input.GetKeyDown(KeyCode.LeftArrow))
             {
+                
                 if (BarMove.hitChecker)
                 {
                     moveFlag = 2;
@@ -74,9 +82,11 @@ public class MainCharacterMaze : MonoBehaviour
                 {
                     Miss();
                 }
+                BarMove.IsStarted = true;
             }
             if (Input.GetKeyDown(KeyCode.UpArrow))
             {
+                
                 if (BarMove.hitChecker)
                 {
                     moveFlag = 3;
@@ -87,10 +97,11 @@ public class MainCharacterMaze : MonoBehaviour
                 {
                     Miss();
                 }
-
+                    BarMove.IsStarted = true;
             }
             if (Input.GetKeyDown(KeyCode.DownArrow) )
             {
+                
                 if (BarMove.hitChecker)
                 {
                     moveFlag = 4;
@@ -102,6 +113,7 @@ public class MainCharacterMaze : MonoBehaviour
                 {
                     Miss();
                 }
+                BarMove.IsStarted = true;
             }
         }
        
@@ -126,6 +138,15 @@ public class MainCharacterMaze : MonoBehaviour
 
 
     }
+    public Vector3 RoundVector3(Vector3 originalVector)
+    {
+        return new Vector3(
+            Mathf.Round(originalVector.x),
+            Mathf.Round(originalVector.y),
+            Mathf.Round(originalVector.z)
+        );
+    }
+
     private void wallStop() {
         RaycastHit2D hit;
         switch (moveFlag)
@@ -139,6 +160,7 @@ public class MainCharacterMaze : MonoBehaviour
                 {
                     moveFlag = 0;
                     rb.velocity = Vector2.zero;
+                    transform.position= RoundVector3(transform.position);
                 }
                 
                 break;
@@ -152,6 +174,7 @@ public class MainCharacterMaze : MonoBehaviour
                 {
                     moveFlag = 0;
                     rb.velocity = Vector2.zero;
+                    transform.position = RoundVector3(transform.position);
                 }
                 break;
             case 3:
@@ -163,6 +186,7 @@ public class MainCharacterMaze : MonoBehaviour
                 {
                     moveFlag = 0;
                     rb.velocity = Vector2.zero;
+                    transform.position = RoundVector3(transform.position);
                 }
                 break;
             case 4:
@@ -174,6 +198,7 @@ public class MainCharacterMaze : MonoBehaviour
                 {
                     moveFlag = 0;
                     rb.velocity = Vector2.zero;
+                    transform.position = RoundVector3(transform.position);
                 }
                 break;
             default:
@@ -184,7 +209,7 @@ public class MainCharacterMaze : MonoBehaviour
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.tag == "goal") Debug.Log("END");
+        if (collision.tag == "goal") SceneManager.LoadScene("Outer");
     }
 
     // Update is called once per frame
