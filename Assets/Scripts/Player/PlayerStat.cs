@@ -93,8 +93,14 @@ public class PlayerStat : MonoBehaviour
             Renderer renderer = GetComponent<Renderer>();
             renderer.material.color = Color.red;
             screenFadeImage.color = new Color(0, 0, 0, 0.5f);
+
+            Invoke("MyFunction", 1.0f);
             //SceneManager.LoadScene("Outer");
         }
+    }
+    void MyFunction()
+    {
+        SceneManager.LoadScene("Outer");
     }
 
 
