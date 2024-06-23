@@ -1707,6 +1707,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   screenFadeImage: {fileID: 104770884}
+  bgmPlayer: {fileID: 180405664}
 --- !u!114 &1065265114
 MonoBehaviour:
   m_ObjectHideFlags: 0
