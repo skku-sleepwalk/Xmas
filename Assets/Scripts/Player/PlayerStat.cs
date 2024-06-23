@@ -14,6 +14,7 @@ public class PlayerStat : MonoBehaviour
     private static int item2;
     private static int item3;
     public Image screenFadeImage;
+    public GameObject bgmPlayer;
     void FadeOutScreen()
     {
         screenFadeImage.color = new Color(0, 0, 0, 0.5f);  // 반투명 검은색으로 설정
@@ -93,7 +94,7 @@ public class PlayerStat : MonoBehaviour
             Renderer renderer = GetComponent<Renderer>();
             renderer.material.color = Color.red;
             screenFadeImage.color = new Color(0, 0, 0, 0.5f);
-
+            bgmPlayer.GetComponent<AudioSource>().Stop();
             Invoke("MyFunction", 1.0f);
             //SceneManager.LoadScene("Outer");
         }
