@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 public class PlayerStat : MonoBehaviour
 {
@@ -92,6 +93,7 @@ public class PlayerStat : MonoBehaviour
             Renderer renderer = GetComponent<Renderer>();
             renderer.material.color = Color.red;
             screenFadeImage.color = new Color(0, 0, 0, 0.5f);
+            //SceneManager.LoadScene("Outer");
         }
     }
 

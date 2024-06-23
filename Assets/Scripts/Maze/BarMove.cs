@@ -10,7 +10,7 @@ public class BarMove : MonoBehaviour
     public static bool hitChecker;
     public static int HitNumber;
     public static bool IsAble;
-    public static bool IsStarted;
+    //public static bool IsStarted;
     public float darkenAmount = 0.2f;  // 어두워지는 정도를 조절할 수 있는 변수
     private Color originalColor;       // 게임 시작 시의 원래 색상
     private Color darkenedColor;       // 원래 색상을 기준으로 조금 더 어두운 색
@@ -20,7 +20,7 @@ public class BarMove : MonoBehaviour
     {
         hitChecker = false;
         IsAble = true;
-        IsStarted = false;
+        //IsStarted = false;
     }
     void Start()
     {
@@ -63,7 +63,7 @@ public class BarMove : MonoBehaviour
 
     void Update()
     {
-        if (IsAble && IsStarted)
+        if (IsAble)
         {
             transform.Translate(Vector3.right * direction * speed);
 

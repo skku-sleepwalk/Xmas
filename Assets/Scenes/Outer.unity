@@ -602,7 +602,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 15d4d998b61185d43bced46d3e48ec13, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sceneName: Maze 1
+  sceneName: Maze 2
   detectionRadius: 1
   playerLayer:
     serializedVersion: 2
